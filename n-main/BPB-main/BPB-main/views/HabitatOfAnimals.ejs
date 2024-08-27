@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habitat Of Animal</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <h1>Habitat Of Animal</h1>
+    <table>
+        <tr>
+            <th>Animal ID</th>
+            <th>Habitat ID</th>
+            <th>Actions</th>
+        </tr>
+        <% for (var i = 0; i < HabitatOfAnimals.length; i++) { %>
+            <tr>
+                <td><%= HabitatOfAnimals[i].AnimalID %></td>
+                <td><%= HabitatOfAnimals[i].HabitatID %></td>
+                <td class="actions">
+                    <a href="/HabitatOfAnimal/<%= HabitatOfAnimals[i].AnimalID %>">View</a>
+                    <a href="/updateHabitatOfAnimal/<%= HabitatOfAnimals[i].AnimalID %>">Update</a>
+                    <a href="/deleteHabitatOfAnimal/<%= HabitatOfAnimals[i].AnimalID %>">Delete</a>
+                </td>
+            </tr>
+        <% } %>
+    </table>
+    <a href="/createHabitatOfAnimal" class="create-link">Create New Habitat Of Animals</a>
+    <a href="/Animals" class="create-link">Add Animal</a>
+    <a href="/Habitats" class="create-link">Add Habitat</a>
+    <br>
+
+    <div class="footer">
+        &copy; 2023 Welcome to BigKuma World
+    </div>
+</body>
+</html>

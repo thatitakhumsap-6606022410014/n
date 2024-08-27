@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Update Habitat</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <h1>Update Habitat</h1>
+    <form method="post" action="/updateHabitat/<%= Habitat.ID %>">
+        <label for="Name">Name</label>
+        <input type="text" id="Name" name="Name" value="<%= Habitat.Name %>">
+        <br>
+        <label for="Data">Data</label>
+        <input type="text" id="Data" name="Data" value="<%= Habitat.Data %>">
+        <br>
+        <label for="Pic">Pic</label>
+        <input type="text" id="Pic" name="Pic" value="<%= Habitat.Pic %>">
+        <br>
+        <input type="submit" value="Update">
+    </form>
+<a href="/Habitat/<%= Habitat.ID %>">View</a>
+<a href="/DeleteHabitat/<%= Habitat.ID %>">Delete</a>
+<a href="/Habitats">Back to List</a>
+</body>
+</html>

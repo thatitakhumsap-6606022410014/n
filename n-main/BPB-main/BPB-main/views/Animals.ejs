@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Animals</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <h1>Animals</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Data</th>
+            <th>Pic</th>
+            <th>Actions</th>
+        </tr>
+        <% for (var i = 0; i < Animals.length; i++) { %>
+            <tr>
+                <td><%= Animals[i].ID %></td>
+                <td><%= Animals[i].Name %></td>
+                <td><%= Animals[i].Data %></td>
+                <td><img src="<%= Animals[i].Pic %>" alt="Animal Pic"></td>
+                <td class="actions">
+                    <a href="/Animal/<%= Animals[i].ID %>">View</a>
+                    <a href="/updateAnimal/<%= Animals[i].ID %>">Update</a>
+                    <a href="/deleteAnimal/<%= Animals[i].ID %>">Delete</a>
+                </td>
+            </tr>
+        <% } %>
+    </table>
+    <a href="/createAnimal" class="create-link">Create New Animal</a>
+    <br>
+    <a href="/" class="create-link">Add Habitat Of animal</a>
+    <br>
+    <a href="/Habitats" class="create-link">Add Habitat</a>
+</body>
+</html>

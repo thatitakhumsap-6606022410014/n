@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Animal</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <h1>View Animal</h1>
+    <table class="Animal-table">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Data</th>
+            <th>Pic</th>
+        </tr>
+        <tr>
+            <td><%= Animal.ID %></td>
+            <td><%= Animal.Name %></td>
+            <td><%= Animal.Data %></td>
+            <td><%= Animal.Pic %>"</td>  
+        </tr>
+    </table>
+    <div class="link-center">
+        <a href="/updateAnimal/<%= Animal.ID %>">Edit</a>
+        <a href="/DeleteAnimal/<%= Animal.ID %>">Delete</a>
+        <a href="/Animals">Back to List</a>
+    </div>
+
+</body>
+</html>

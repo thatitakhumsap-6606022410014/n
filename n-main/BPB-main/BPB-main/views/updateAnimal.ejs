@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Update Animal</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <h1>Update Animal</h1>
+    <form method="post" action="/updateAnimal/<%= Animal.ID %>">
+        <label for="Name">Name</label>
+        <input type="text" id="Name" name="Name" value="<%= Animal.Name %>">
+        <br>
+        <label for="Data">Data</label>
+        <input type="text" id="Data" name="Data" value="<%= Animal.Data %>">
+        <br>
+        <label for="Pic">Pic</label>
+        <input type="text" id="Pic" name="Pic" value="<%= Animal.Pic %>">
+        <br>
+        <input type="submit" value="Update">
+    </form>
+<a href="/Animal/<%= Animal.ID %>">View</a>
+<a href="/DeleteAnimal/<%= Animal.ID %>">Delete</a>
+<a href="/Animals">Back to List</a>
+</body>
+</html>

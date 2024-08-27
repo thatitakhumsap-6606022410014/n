@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Habitat</title>
+    <link rel="stylesheet" href="../css/style.css">
+<body>
+    <h1>View Habitat</h1>
+    <table class="Habitat-table">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Data</th>
+            <th>Pic</th>
+        </tr>
+        <tr>
+            <td><%= Habitat.ID %></td>
+            <td><%= Habitat.Name %></td>
+            <td><%= Habitat.Data %></td>
+            <td><%= Habitat.Pic %></td>
+        </tr>
+    </table>
+    <div class="link-center">
+        <a href="/updateHabitat/<%= Habitat.ID %>">Edit</a>
+        <a href="/DeleteHabitat/<%= Habitat.ID %>">Delete</a>
+        <a href="/Habitats">Back to List</a>
+    </div>
+</body>
+</html>

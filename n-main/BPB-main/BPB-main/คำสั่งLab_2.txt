@@ -1,0 +1,126 @@
+SW1, SW2, SW3
+-no ip domain-lookup
+-hostname SW1
+
+กำหนด vlan SW1, SW2, SW3
+-vlan 10
+-vlan 20
+-vlan 30
+-vlan 99
+-name Native
+-ex
+
+-int vlan 99
+-ip address 100.99.0.2 255.255.0.0
+-ex
+-ip default-gateway 100.99.0.1
+
+SW1
+--------------------------------------
+ch 1 pagp desi-desi
+-int range fastEthernet 0/1-2
+-switchport mode trunk
+-switchport trunk native vlan 99
+-sh
+
+-channel-group 1 mode desirable
+-no sh
+-ex
+
+-int port-channel 1
+-switchport mode trunk
+-switchport trunk native vlan 99
+--------------------------------------
+
+--------------------------------------
+ch 2 lacp acti-acti
+-int range fastEthernet 0/3-4
+-switchport mode trunk
+-switchport trunk native vlan 99
+-sh
+
+-channel-group 2 mode active
+-no sh
+-ex
+
+-int port-channel 2
+-switchport mode trunk
+-switchport trunk native vlan 99
+--------------------------------------
+
+--------------------------------------
+ch 3 manual on-on
+-int range fastEthernet 0/5-6
+-switchport mode trunk
+-switchport trunk native vlan 99
+-sh
+
+-channel-group 3 mode on
+-no sh
+-ex
+
+-int port-channel 3
+-switchport mode trunk
+-switchport trunk native vlan 99
+--------------------------------------
+
+--------------------------------------
+ทำ vlan เป็น access
+SW1-SW3
+-int fastEthernet 0/7
+-switchport mode access
+-switchport access vlan 10
+-ex
+
+-int fastEthernet 0/8
+-switchport mode access
+-switchport access vlan 20
+-ex
+
+-int fastEthernet 0/9
+-switchport mode access
+-switchport access vlan 30
+-ex
+--------------------------------------
+
+--------------------------------------
+Router
+-no ip domain-lookup
+-hostname R1
+
+-int g0/0.10
+-encapsulation dot1Q 10
+-ip address 100.10.0.1 255.255.0.0
+-ex
+
+-int g0/0.20
+-encapsulation dot1Q 20
+-ip address 100.20.0.1 255.255.0.0
+-ex
+
+-int g0/0.30
+-encapsulation dot1Q 30
+-ip address 100.30.0.1 255.255.0.0
+-ex
+
+-int g0/0.99
+-encapsulation dot1Q 99 native
+-ip address 100.99.0.1 255.255.0.0
+-ex
+
+-int g0/0
+-no sh
+
+SW2
+-int fastEthernet 0/24
+-switchport mode trunk
+-switchport trunk native vlan 99
+--------------------------------------
+
+
+
+###none###
+-do sh int trunk (เช็คว่า Pol ขึ้น none ถ้าขึ้นให้ต่อไป)
+-int port-channel 1
+-switchport nonegotiate
+-switchport trunk allowed vlan 10,20,30,99
